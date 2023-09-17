@@ -47,3 +47,13 @@ public:
         // How to mamage resources here?
     }
 };
+
+
+// Test the system 
+int main() {
+    MassSpringDamper MSD_1 = MassSpringDamper(1.5, 0.8, 0.2, 0.0, 0.0);
+    MSD_1.setInput(0.0);
+    MSD_1.simulateSystem(0.1);
+    MSD_1.print_state();
+    return 0;
+}
