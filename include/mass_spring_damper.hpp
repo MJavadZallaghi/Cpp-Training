@@ -20,6 +20,8 @@ private:
 public:
     // Mass Spring Damper Constructor
     MassSpringDamper(float I_def, float K_def, float B_def, float x_init, float x_dot_init);
+    void setParams(float I_def, float K_def, float B_def);
+    void setInitialCondition(float x_init, float x_dot_init);
 
     // Calculation methods
     void setInput(float U_inp);
