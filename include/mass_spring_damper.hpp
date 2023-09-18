@@ -1,5 +1,6 @@
-#ifndef MASS_SPRING_DAMPER_H
-#define MASS_SPRING_DAMPER_H
+#ifndef MASS_SPRING_DAMPER_HPP
+#define MASS_SPRING_DAMPER_HPP
+#endif
 
 class MassSpringDamper
 {
