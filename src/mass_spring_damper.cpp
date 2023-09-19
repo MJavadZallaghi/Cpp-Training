@@ -33,6 +33,10 @@ void MassSpringDamper::print_state() {
     std::cout << "V: " << x_dot <<std::endl;
 }
 
+float MassSpringDamper::get_pose_signal() {
+    return x;
+}
+
 // Object destructor
 MassSpringDamper::~MassSpringDamper() {
     // How to mamage resources here?

@@ -28,6 +28,9 @@ public:
     void simulateSystem(float dt);
     void print_state();
 
+    // Feedback from state
+    float get_pose_signal();
+
     // Object destructor
     ~MassSpringDamper();
 };
