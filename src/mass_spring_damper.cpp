@@ -33,6 +33,10 @@ void MassSpringDamper::print_state() {
     std::cout << "V: " << x_dot <<std::endl;
 }
 
+void MassSpringDamper::print_input() {
+    std::cout << "U: " << U <<std::endl;
+}
+
 float MassSpringDamper::get_pose_signal() {
     return x;
 }

@@ -27,6 +27,7 @@ public:
     void setInput(float U_inp);
     void simulateSystem(float dt);
     void print_state();
+    void print_input();
 
     // Feedback from state
     float get_pose_signal();

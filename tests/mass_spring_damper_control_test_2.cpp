@@ -1,5 +1,6 @@
 #include "mass_spring_damper.hpp"
 #include "pid_controller.hpp"
+#include "RateLimiter.hpp"
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -21,15 +22,17 @@ void write_mass_sping_data_to_file(std::string file_name ,std::vector<float> dat
 int main() {
     MassSpringDamper MSD1(1.5, 0.8, 0.2, 1.0, 0.0);
     PID_Controller PID1(1.0, 0.3, 0.2);
+    RateLimiter limiter(1);
 
     // Simulation settings
     float dt = 0.1;
     float time = 0.0;
 
     // Controller settings
-    float set_point = 10.;
+    float set_point = 10;
     float pose_feedback; 
     float controller_effort;
+    float controller_effort_limited;
 
     // Data collection for plot
     std::vector<float> time_array = {};
@@ -44,12 +47,16 @@ int main() {
         pose_feedback = MSD1.get_pose_signal();
         controller_effort = PID1.compute(pose_feedback, set_point, dt);
 
-        pose_feedback_array.push_back(pose_feedback);
-        controller_effort_array.push_back(controller_effort);
+        controller_effort_limited = limiter.limitChange(controller_effort);
 
-        MSD1.setInput(controller_effort);
+        pose_feedback_array.push_back(pose_feedback);
+        controller_effort_array.push_back(controller_effort_limited);
+
+        MSD1.setInput(controller_effort_limited);
         MSD1.simulateSystem(dt);
         MSD1.print_state();
+        MSD1.print_input();
+
     }
 
     // Save data in a file to plot with gnuplot
