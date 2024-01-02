@@ -35,7 +35,7 @@ double RateLimiter::limitChange(double currentSignalVal_get) {
         }
     }
     else {
-        if (abs(signal_change) >= maxChangePerCycle) {
+        if (fabs(signal_change) >= maxChangePerCycle) {
             limitedValue = lastValue - maxChangePerCycle;
         }
         else {
