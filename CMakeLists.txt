@@ -11,3 +11,8 @@ target_include_directories(cpp_training PRIVATE include/)
 add_executable(test_multi_threat_exec tests/parallel_run_multi_thread.cpp)
 
 target_include_directories(test_multi_threat_exec PRIVATE include/)
+
+add_executable(log_csv_data tests/log_csv_data.cpp)
+
+target_include_directories(log_csv_data PRIVATE include/)
+
