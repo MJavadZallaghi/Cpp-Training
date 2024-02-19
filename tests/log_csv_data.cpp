@@ -36,8 +36,11 @@ int main() {
     KinDataLogFile.open(LogFileNameDated("KinDataLogFile"), std::ios::out);
 
     struct Kinematic3DoF dataKinematic1 = {0.};
+    dataKinematic1.x = 10; dataKinematic1.y = 11;
     struct Kinematic3DoF dataKinematic2 = {1.};
+    dataKinematic2.x = 20; dataKinematic2.y = 21;
     struct Kinematic3DoF dataKinematic3 = {2.};
+    dataKinematic3.x = 30; dataKinematic3.y = 31;
 
     std::queue<Kinematic3DoF> dataKinematicQueue;
     dataKinematicQueue.emplace(dataKinematic1);
